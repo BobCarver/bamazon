@@ -41,7 +41,7 @@ function promptUserPurchase() {
 
 		connection.query(queryStr, {item_id: item}, function(err, data) {
 			if (err) throw err;
-
+			// console.log("test", data)
 			if (data.length === 0) {
 				console.log("Not a valid ID! Try again with a different ID.");
 			    showInventory();
@@ -49,15 +49,13 @@ function promptUserPurchase() {
 			} else {
 				var productData = data[0];
 
-
+					// console.log(quantity, productData);
 				// If the quantity requested by the user is in stock
 				if (quantity <= productData.stock_quantity) {
 					console.log("Congratulations, the product you requested is in stock! Processing...");
 
 					// Construct the updating query string
                     var updateQueryStr = `UPDATE products SET stock_quantity = ${productData.stock_quantity - quantity} WHERE item_id = ${item}`;
-
-
 					// Inventory update
 					connection.query(updateQueryStr, function(err, data) {
 						if (err) throw err;
@@ -71,7 +69,7 @@ function promptUserPurchase() {
 				} else {
 					console.log("We don't have enough in stock to complete your order! Try again");
 
-					showInventory();
+					// showInventory();
 				}
 			}
 		})
