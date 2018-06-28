@@ -94,10 +94,7 @@ function showInventory() {
 		var strOut = '';
 		for (var i = 0; i < data.length; i++) {
             strOut = `Item ID: ${data[i].item_id} | Product Name: ${data[i].product_name} | Department: ${data[i].department_name} | Price: ${data[i].price} | Quantity: ${data[i].stock_quantity}\n`
-			// strOut += 'Item ID: ' + data[i].item_id + '  //  ';
-			// strOut += 'Product Name: ' + data[i].product_name + '  //  ';
-			// strOut += 'Department: ' + data[i].department_name + '  //  ';
-			// strOut += 'Price: $' + data[i].price + '\n';
+
 
 			console.log(strOut);
 		}
